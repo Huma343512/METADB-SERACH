@@ -1,0 +1,16 @@
+# Credentials (ska aldrig pushas)
+backend/db-credentials.js
+
+# Node.js
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Media-mappar
+backend/import/images/
+backend/images/
+frontend/images/
+
+# Systemfiler
+.DS_Store
+Thumbs.db

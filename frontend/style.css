@@ -1,0 +1,177 @@
+/* ====== Bas / variabler ====== */
+:root{
+  --bg:#f6f8fb; --panel:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
+  --brand:#5b5bd6; --brand2:#7a5af8; --ring:#98a2ff;
+  --shadow:0 12px 28px rgba(15,23,42,.1); --radius:14px;
+}
+*{ box-sizing:border-box }
+
+/* ====== Layout (sticky footer) ====== */
+html, body { height:100% }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+main{ flex:1 0 auto }
+
+.wrap{ max-width:1500px; margin:0 auto; padding:24px }  /* bredare sida */
+
+/* ====== Topbar ====== */
+.topbar{ background:linear-gradient(180deg,#1e293b,#1b2433); color:#fff }
+.topbar .wrap{ display:flex; justify-content:space-between; align-items:center }
+.brand{ display:flex; align-items:center; gap:.6rem }
+.brand .dot{ width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg,var(--brand),var(--brand2)) }
+.nav a{ color:#cbd5e1; text-decoration:none; margin-left:16px }
+.nav a:hover{ color:#fff }
+
+/* ====== Rubriker ====== */
+h1{ margin:12px 0 }
+
+/* ====== Kort / paneler ====== */
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:16px;
+  margin:14px auto;
+  max-width:1200px;              /* bredare kort */
+}
+
+/* ====== Sök-rad ====== */
+.search-row{
+  display:grid;
+  grid-template-columns: 1fr 180px 220px 120px;
+  gap:12px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:14px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.search-row input,
+.search-row select{
+  height:46px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:0 12px;
+}
+
+/* ====== Buttons ====== */
+.btn{
+  height:46px;
+  border:0;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff;
+  cursor:pointer;
+  padding:0 16px;
+}
+.btn-outline{
+  height:46px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:#0f172a;
+  border-radius:10px;
+  cursor:pointer;
+  padding:0 16px;
+}
+.btn, .btn-outline{
+  display:inline-flex; align-items:center; justify-content:center;
+  text-decoration:none;
+}
+.actions{ display:flex; gap:10px; margin-top:10px; flex-wrap:wrap }
+
+/* ====== Result-UI ====== */
+.results-count{ color:var(--muted); margin:10px auto; max-width:1200px }
+
+/* ====== Metadata (pre) ====== */
+pre{
+  background:#f1f5f9;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:12px;
+  overflow:auto;
+}
+
+/* ====== Karta ====== */
+#map{
+  width:100%;
+  height:min(max(70vh, 600px), 1000px); /* lite högre karta */
+  border:1px solid var(--line);
+  border-radius:12px;
+  margin:14px auto;
+  max-width:1300px;                     /* bredare karta */
+}
+
+/* ====== Hero/Start ====== */
+.page{ margin-top:8px }
+.hero{ text-align:center; padding-top:28px; padding-bottom:8px }
+.badge{
+  display:inline-block; padding:6px 10px; border-radius:999px;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff; font-size:12px; font-weight:600; letter-spacing:.3px;
+}
+.hero h1{ font-size:clamp(28px,4vw,40px); margin:14px 0 8px }
+.lead{ color:var(--muted); max-width:900px; margin:0 auto 16px; font-size:clamp(16px,2.2vw,18px) }
+.cta{ display:flex; gap:12px; justify-content:center }
+
+/* ====== Feature-grid ====== */
+.feature-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:16px;
+  margin-top:16px;
+}
+.feature-grid .card{ max-width:100% }
+.feature-grid .card h3{ margin:4px 0 8px }
+
+/* ====== Footer ====== */
+.footer{
+  background:#111827;
+  color:#e5e7eb;
+  padding:10px 20px;
+  box-shadow:0 -2px 5px rgba(0,0,0,0.2);
+  margin-top:auto;
+}
+.footer-content{
+  max-width:1500px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  font-size:14px;
+  gap:8px 16px;
+}
+.footer a{ color:#3b82f6; text-decoration:none }
+.footer a:hover{ text-decoration:underline }
+
+/* ====== Respons ====== */
+@media (max-width: 1200px){
+  .search-row{ grid-template-columns: 1fr 160px 1fr 120px }
+}
+@media (max-width: 900px){
+  .feature-grid{ grid-template-columns:1fr }
+  .cta{ flex-direction:column }
+  .btn, .btn-outline{ width:100% }
+}
+@media (max-width: 720px){
+  .wrap{ padding:16px }
+  .search-row{ grid-template-columns:1fr; }
+  .card, .results-count{ max-width:100% }
+  #map{ max-width:100% }
+}
+
+/* ====== A11y ====== */
+:focus-visible{ outline:3px solid var(--ring); outline-offset:2px; border-radius:6px }
+
+
+
+
+

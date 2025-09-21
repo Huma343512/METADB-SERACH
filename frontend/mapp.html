@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> <!-- + viewport -->
+  <title>Karta – Meta Data Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <span class="dot"></span>
+        <strong>Meta Data Search</strong>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Start</a>
+        <a href="search.html">Sök</a>
+        <a href="mapp.html">Karta</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="wrap">
+    <h1>Sök bilder på karta</h1>
+    <p>Klicka på kartan för att välja plats. Ändra radie för fler/färre träffar.</p>
+
+    <label for="radius">Radie:</label>
+    <select id="radius">
+      <option value="10">10 km</option>
+      <option value="25">25 km</option>
+      <option value="50" selected>50 km</option>
+      <option value="100">100 km</option>
+      <option value="500">500 km</option>
+      <option value="1000">1000 km</option>
+    </select>
+
+    <div id="map"></div>
+
+    <div class="results-count" id="status">0 träffar</div>
+    <div id="results"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div>© Meta Data Search <br> www.metadatasearch.com</div>
+      <div>
+        Email: <a href="mailto:info@metadatasearch.com">info@metadatasearch.com</a><br>
+        Telefon: +46 70 123 45 67
+      </div>
+    </div>
+  </footer>
+
+  <!-- Kartsidan logik -->
+  <script defer src="main-mapp.js"></script>
+
+  <!-- Google Maps (TA BORT extra ' i slutet) -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+    async
+    defer
+  ></script>
+</body>
+</html>
+
+
+
